@@ -1,6 +1,5 @@
-# testlibrary
- 如何使用android Studio新建一个library并且提交到jcenter  
-[Android Library项目发布到JCenter最简单的配置方法](http://www.cnblogs.com/shiwei-bai/archive/2015/11/24/4991636.html)  
 
-# crash
-crash collecter
+
+# Crash
+  如何使用 crash collecter在程序崩溃的瞬间将崩溃日志第一时间发送到自己的邮箱
+
