@@ -15,11 +15,13 @@ import android.os.Environment;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -371,5 +373,38 @@ public class FileUtil {
         final String[] units = new String[]{"B", "KB", "MB", "GB", "TB"};
         int digitGroups = (int) (Math.log10(size) / Math.log10(1024));
         return new DecimalFormat("#,##0.#").format(size / Math.pow(1024, digitGroups)) + " " + units[digitGroups];
+    }
+
+    public static String getStrFromFile(final String localUrl) {
+        String str = "日志文件路径" + localUrl;
+        File myFile = new File(localUrl);
+        if (!myFile.exists()) {
+            return null;
+        }
+        BufferedReader in = null;
+        StringBuffer buffer = null;
+        try {
+            in = new BufferedReader(new FileReader(myFile));
+            buffer = new StringBuffer("<br/>日志sdcard路径" + localUrl + "<br/>");
+            while ((str = in.readLine()) != null) {
+                if (str != null && str.contains("Exception")) {
+                    buffer.append("<font color=red size=5 face=宋体><strong>"
+                            + str + "</strong></font><br/>");
+                } else {
+                    buffer.append(str + "<br/>");
+                }
+            }
+            if (in != null) {
+                in.close();
+            }
+        } catch (Exception e) {
+            e.getStackTrace();
+            buffer.append("<font color=red size=5 face=宋体><strong>日志文件太长无法发送 OutOfMemoryError </strong></font><br/>\"");
+        } catch (OutOfMemoryError e) {
+            e.getStackTrace();
+            buffer.append("<font color=red size=5 face=宋体><strong>日志文件太长无法发送 OutOfMemoryError </strong></font><br/>\"");
+        }
+        String string = buffer.toString();
+        return string;
     }
 }

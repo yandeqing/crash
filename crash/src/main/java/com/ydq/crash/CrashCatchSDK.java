@@ -122,7 +122,7 @@ public class CrashCatchSDK {
     public static void uploadLog(final File file) {
         if (file.exists()) {
             try {
-                EmailSender.sendClientErrorLogEmail(
+                EmailerSDK.sendClientErrorLogEmail(
                         file.getAbsolutePath(), mContext);
                 boolean delete = FileUtil.deleteFile(file.getAbsolutePath());// 删除文件
                 boolean deleteFile = mContext

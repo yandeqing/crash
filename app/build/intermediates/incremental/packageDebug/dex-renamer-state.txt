@@ -1,4 +1,4 @@
-#Tue Sep 27 13:36:12 SGT 2016
+#Tue Sep 27 18:32:17 SGT 2016
 base.0=C\:\\Users\\deqing\\AndroidStudioProjects\\Crash\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
 renamed.0=classes.dex
 file.0=C\:\\Users\\deqing\\AndroidStudioProjects\\Crash\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex

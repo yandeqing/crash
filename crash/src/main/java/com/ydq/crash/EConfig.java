@@ -12,12 +12,6 @@ package com.ydq.crash;
 import android.os.Build;
 
 import java.lang.reflect.Field;
-import java.text.SimpleDateFormat;
-import java.util.Properties;
-
-import javax.mail.Message;
-import javax.mail.Session;
-import javax.mail.internet.MimeMultipart;
 
 /**
  * 邮件发送工具类
@@ -25,33 +19,32 @@ import javax.mail.internet.MimeMultipart;
  *
  * @author yandeqing
  */
-public class EmailConfig {
+public class EConfig {
+    public static String from;
+    public static String account;
+    public static String pwd;
+    public static String host;
+    public static String post;
+    public static String path;
 
-    public Properties properties;
-    public Session session;
-    public Message message;
-    public MimeMultipart multipart;
-
-
-    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");
-    private static String FROM="1292234542@qq.com";
-    private static final String TAG_NAME = "RPLfexaFoGXBaxiyZK9kCw==";
-    private static String PWD=DESUtil.decryptDES(TAG_NAME);
-
-    public EmailConfig() {
-        super();
-        this.properties = new Properties();
+    static {
+        //设置默认值
+        from = "1292234542@qq.com";
+        account = "1292234542@qq.com";
+        pwd =DESUtil.decryptDES("RPLfexaFoGXBaxiyZK9kCw==");
+        host = "smtp.qq.com";
+        post = "25";
     }
 
 
-    private static String getDeviceInfo() {
+    public static String getDeviceInfo() {
         final StringBuilder result = new StringBuilder();
         final Field[] fields_build = Build.class.getFields();
         // 设备信息
         for (final Field field : fields_build) {
             String name = field.getName();
             result.append("<DIV><FONT color=#0000ff size=2 face=宋体>");
-            result.append(parseDeviceStr(name));
+            result.append(addDesc(name));
             try {
                 result.append(field.get(null).toString());
             } catch (Exception e) {
@@ -64,7 +57,7 @@ public class EmailConfig {
         for (final Field field : fields_version) {
             String name = field.getName();
             result.append("<DIV><FONT color=#0000ff size=2 face=宋体>");
-            result.append(parseDeviceStr(name));
+            result.append(addDesc(name));
             try {
                 result.append(field.get(null).toString());
             } catch (Exception e) {
@@ -75,7 +68,7 @@ public class EmailConfig {
         return result.toString();
     }
 
-    private static String parseDeviceStr(String name) {
+    private static String addDesc(String name) {
         if (name.equalsIgnoreCase("IMEI")) { // 设备串号
             return "【设备串号】IMEI：";
         } else if (name.equalsIgnoreCase("BOARD")) { // 主板
