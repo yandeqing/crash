@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ylq.testlibrary.test" >
+    package="com.ydq.crash.test" >
 
     <uses-sdk
         android:minSdkVersion="16"
@@ -10,8 +10,8 @@
         android:name="android.test.InstrumentationTestRunner"
         android:functionalTest="false"
         android:handleProfiling="false"
-        android:label="Tests for com.ylq.testlibrary.test"
-        android:targetPackage="com.ylq.testlibrary.test" />
+        android:label="Tests for com.ydq.crash.test"
+        android:targetPackage="com.ydq.crash.test" />
 
     <application
         android:allowBackup="true"

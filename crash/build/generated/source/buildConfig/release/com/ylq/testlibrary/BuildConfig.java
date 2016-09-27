@@ -1,7 +1,7 @@
 /**
  * Automatically generated file. DO NOT MODIFY
  */
-package com.ylq.testlibrary;
+package com.ydq.crash;
 
 public final class BuildConfig {
   public static final boolean DEBUG = false;

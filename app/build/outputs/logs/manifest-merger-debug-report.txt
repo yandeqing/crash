@@ -15,7 +15,7 @@ ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManif
 		INJECTED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml
 application
 ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml:5:5-18:19
-MERGED from [me.crash:crash:1.0] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\me.crash\crash\1.0\AndroidManifest.xml:11:5-15:19
+MERGED from [com.ydq:crash:1.0] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\com.ydq\crash\1.0\AndroidManifest.xml:11:5-15:19
 MERGED from [com.android.support:appcompat-v7:23.4.0] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:animated-vector-drawable:23.4.0] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
 MERGED from [com.android.support:support-vector-drawable:23.4.0] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
@@ -30,10 +30,10 @@ MERGED from [com.android.support:support-v4:23.4.0] C:\Users\deqing\AndroidStudi
 		ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml:7:9-43
 	android:theme
 		ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml:10:9-40
-activity#com.ylq.customview.MainActivity
+activity#com.ydq.customview.MainActivity
 ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml:11:9-17:20
 	android:name
-		ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml:11:19-47
+		ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml:11:19-65
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
 ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml:12:13-16:29
 action#android.intent.action.MAIN
@@ -46,7 +46,7 @@ ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManif
 		ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml:15:27-74
 uses-sdk
 INJECTED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [me.crash:crash:1.0] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\me.crash\crash\1.0\AndroidManifest.xml:7:5-9:41
+MERGED from [com.ydq:crash:1.0] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\com.ydq\crash\1.0\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:23.4.0] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:21:5-23:78
 MERGED from [com.android.support:animated-vector-drawable:23.4.0] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\AndroidManifest.xml:5:5-44
 MERGED from [com.android.support:support-vector-drawable:23.4.0] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:5:5-43
