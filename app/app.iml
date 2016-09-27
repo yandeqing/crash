@@ -113,5 +113,8 @@
     <orderEntry type="library" exported="" name="support-vector-drawable-23.4.0" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-23.4.0" level="project" />
     <orderEntry type="module" module-name="crash" exported="" />
+    <orderEntry type="library" exported="" name="additionnal" level="project" />
+    <orderEntry type="library" exported="" name="mail" level="project" />
+    <orderEntry type="library" exported="" name="activation" level="project" />
   </component>
 </module>

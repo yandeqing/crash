@@ -1,4 +1,5 @@
 /build
 /build/*
+/build/*/*
 /local.properties
 /crash.iml
