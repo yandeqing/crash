@@ -72,11 +72,8 @@ public class FileUtil {
     }
 
     /**
-     * 复制单个文件
-     *
-     * @param oldPath String 原文件路径 如：c:/fqf.txt
-     * @param newPath String 复制后路径 如：f:/fqf.txt
-     * @return boolean
+     * @param oldPath
+     * @param newPath
      */
     public static void copyFile(String oldPath, String newPath) {
         File oldfile = new File(oldPath);
@@ -107,8 +104,9 @@ public class FileUtil {
     }
 
     /**
+     *
+     * @param absolutePath
      * @param content
-     * @return
      * @throws IOException
      */
     public static void write(String absolutePath, String content)
@@ -123,8 +121,10 @@ public class FileUtil {
     }
 
     /**
+     *
+     * @param absolutePath
      * @param content
-     * @return
+     * @param override
      * @throws IOException
      */
     public static void write(String absolutePath, String content, boolean override)
@@ -148,6 +148,14 @@ public class FileUtil {
         }
     }
 
+    /**
+     *
+     * @param context
+     * @param filename
+     * @param content
+     * @return
+     * @throws IOException
+     */
     public static String write(Context context, String filename, String content)
             throws IOException {
         if (!filename.endsWith(".txt")) {
@@ -164,6 +172,7 @@ public class FileUtil {
     }
 
     /**
+     *
      * @param context
      * @return
      */
@@ -177,10 +186,11 @@ public class FileUtil {
     }
 
     /**
-     * 生成错误报告文件，包含手机信息，系统版本，错误详情等内容
      *
-     * @param throwable 存放目录
+     * @param context
+     * @param throwable
      * @return
+     * @throws IOException
      */
     public static String writeSdcard(Context context, Throwable throwable)throws IOException {
         String error_report_dir = "";
@@ -237,7 +247,6 @@ public class FileUtil {
     }
 
     /**
-     * 写入 错误信息
      *
      * @param throwable
      * @param printStream
@@ -255,7 +264,6 @@ public class FileUtil {
 
     /**
      * 写入设备和系统详情
-     *
      * @param os
      * @throws IOException
      */
