@@ -16,7 +16,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    lintOptions {
+        abortOnError false
+    }
 }
+
 
 
 dependencies {
@@ -25,7 +29,7 @@ dependencies {
     compile files('libs/additionnal.jar')
     compile files('libs/mail.jar')
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.+'
 }
+
 apply from: "bintrayUpload.gradle"
 //apply from: "https://raw.githubusercontent.com/xiaopansky/android-library-publish-to-jcenter/master/bintrayUpload.gradle"
