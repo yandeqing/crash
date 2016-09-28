@@ -1,0 +1,8 @@
+#bintray
+bintray.user=yandeqing
+bintray.apikey=replace your apikey
+
+#developer
+developer.id=deqing
+developer.name=deqing
+developer.email=18612205027@163.com
