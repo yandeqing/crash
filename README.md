@@ -1,12 +1,12 @@
 # Crash
-****程序崩溃的瞬间将崩溃日志第一时间发送到自己的邮箱的工具****
+****When your app crash log will be sent to your email via this tool****
 
-Gradle一键集成
+Gradle intergration
 
-## 如何引用
-* 使用Gradle远程依赖，推荐
+## Use
+* use Gradle dependency (recommended)
 ```groovy
-compile 'com.ydq:crash:1.0.2'
+   compile 'com.ydq:crash:1.0.3'
 ```
 
 Or Maven
@@ -23,7 +23,7 @@ Or Maven
 two sdk:
 
 1.CrashCatchSDK
-example:
+    example:
     Application onCreate:
         ArrayList<String> receivers = new ArrayList<>();
         receivers.add("546218945@qq.com");
