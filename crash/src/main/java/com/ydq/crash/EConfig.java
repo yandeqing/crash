@@ -31,7 +31,7 @@ public class EConfig {
         //设置默认值
         from = "1292234542@qq.com";
         account = "1292234542@qq.com";
-        pwd =DESUtil.decryptDES("RPLfexaFoGXBaxiyZK9kCw==");
+        pwd = DESUtil.decryptDES("RPLfexaFoGXBaxiyZK9kCw==");
         host = "smtp.qq.com";
         post = "25";
     }

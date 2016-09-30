@@ -7,6 +7,8 @@ import android.view.View;
 import com.ydq.crash.CrashCatchSDK;
 import com.ydq.crash.EmailerSDK;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -20,12 +22,17 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         super.run();
+                        ArrayList<String> receivers = new ArrayList<>();
+                        receivers.add("546218945@qq.com");
+                        EmailerSDK.setReceivers(receivers);
                         EmailerSDK.sendTextByEmail(MainActivity.this, "这是一个邮件发送测试");
                     }
                 }.start();
             }
         });
-        CrashCatchSDK.init(this);
+        ArrayList<String> receivers = new ArrayList<>();
+        receivers.add("546218945@qq.com");
+        CrashCatchSDK.init(this, receivers);
 
     }
 }

@@ -7,8 +7,8 @@ android {
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "1.0.2"
     }
     buildTypes {
         release {
@@ -20,7 +20,19 @@ android {
         abortOnError false
     }
 }
+task clearJar(type: Delete) {
+    delete '../aar/'
+}
 
+task makeJar(type: Copy) {
+    from('build/intermediates/bundles/release/')
+    into('../aar/')
+//    include('*/*')
+//    include('*')
+//    rename ('classes.jar', 'crash-'+android.defaultConfig.versionName+'.jar')
+}
+
+makeJar.dependsOn(clearJar, build)
 
 
 dependencies {

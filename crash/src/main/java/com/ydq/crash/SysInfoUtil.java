@@ -11,6 +11,7 @@ package com.ydq.crash;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -60,6 +61,7 @@ public class SysInfoUtil {
         context.getWindowManager().getDefaultDisplay().getMetrics(dm);
         return dm.heightPixels;
     }
+
     /**
      * 获取屏幕宽度
      *
@@ -71,7 +73,6 @@ public class SysInfoUtil {
         context.getWindowManager().getDefaultDisplay().getMetrics(dm);
         return dm.widthPixels;
     }
-
 
 
     /**
@@ -122,6 +123,25 @@ public class SysInfoUtil {
         String imsi = ((TelephonyManager) context
                 .getSystemService(Context.TELEPHONY_SERVICE)).getSubscriberId();
         return imsi;
+    }
+
+    /**
+     * 获取客户端软件版本名称信息
+     *
+     * @param context
+     */
+    public static String getAppName(Context context) {
+        PackageManager packageManager = null;
+        ApplicationInfo applicationInfo = null;
+        try {
+            packageManager = context.getApplicationContext().getPackageManager();
+            applicationInfo = packageManager.getApplicationInfo(context.getPackageName(), 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            applicationInfo = null;
+        }
+        String applicationName =
+                (String) packageManager.getApplicationLabel(applicationInfo);
+        return applicationName;
     }
 
     /**
@@ -183,7 +203,7 @@ public class SysInfoUtil {
 
 
     public static String getDeviceId(Context context) {
-        String android_id="无法设备号";
+        String android_id = "无法设备号";
         try {
             android_id = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
         } catch (Exception e) {
