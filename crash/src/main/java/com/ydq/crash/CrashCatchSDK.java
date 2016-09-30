@@ -28,18 +28,23 @@ public class CrashCatchSDK {
     }
 
 
-//    public static CrashCatchSDK init(Context context) {
-//        mContext = context;
-//        if (crashCatchSDK == null) {
-//            crashCatchSDK = new CrashCatchSDK();
-//            mContext = context;
-//            defaultExceptionHandler = Thread.getDefaultUncaughtExceptionHandler();
-//        }
-//        setUnCatchableAcceptListioner();
-//        sendErrorLogFromSdcard();//初始化的时候发送一次
-//        return crashCatchSDK;
-//    }
+    public static CrashCatchSDK init(Context context) {
+        mContext = context;
+        if (crashCatchSDK == null) {
+            crashCatchSDK = new CrashCatchSDK();
+            mContext = context;
+            defaultExceptionHandler = Thread.getDefaultUncaughtExceptionHandler();
+        }
+        setUnCatchableAcceptListioner();
+        sendErrorLogFromSdcard();//初始化的时候发送一次
+        return crashCatchSDK;
+    }
 
+    /**
+     * @param context
+     * @param receivers
+     * @return
+     */
     public static CrashCatchSDK init(Context context, List<String> receivers) {
         mContext = context;
         mReceivers = receivers;
@@ -141,7 +146,7 @@ public class CrashCatchSDK {
         if (file.exists()) {
             try {
                 EmailerSDK.setReceivers(mReceivers);
-                EmailerSDK.sendClientErrorLogEmail(mContext,file.getAbsolutePath());
+                EmailerSDK.sendClientErrorLogEmail(mContext, file.getAbsolutePath());
                 boolean delete = FileUtil.deleteFile(file.getAbsolutePath());// 删除文件
                 boolean deleteFile = mContext
                         .deleteFile(file.getName());

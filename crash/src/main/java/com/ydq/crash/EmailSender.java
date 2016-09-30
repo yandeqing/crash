@@ -63,6 +63,9 @@ public class EmailSender {
         initProperties(host, post);
     }
 
+    /**
+     *
+     */
     public static class Builder {
         private EmailSender emailSender;
 
@@ -93,7 +96,6 @@ public class EmailSender {
 
         public Builder setReceiver(List<String> receiver) {
             emailSender.setReceiver(receiver);
-
             return this;
         }
 
@@ -126,7 +128,6 @@ public class EmailSender {
      * 设置收件人
      *
      * @param receiver
-     * @throws MessagingException
      */
     public void setReceiver(List<String> receiver) {
         try {
@@ -142,6 +143,11 @@ public class EmailSender {
         }
     }
 
+    /**
+     *
+     * @param receiver
+     * @throws MessagingException
+     */
     public void setReceiver(String receiver) throws MessagingException {
         Address address = new InternetAddress(receiver);
         this.message.setRecipient(Message.RecipientType.TO, address);
