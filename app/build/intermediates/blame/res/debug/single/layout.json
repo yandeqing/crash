@@ -104,10 +104,6 @@
         "source": "C:\\Users\\deqing\\AndroidStudioProjects\\Crash\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\notification_template_part_time.xml"
     },
     {
-        "merged": "C:\\Users\\deqing\\AndroidStudioProjects\\Crash\\app\\build\\intermediates\\res\\merged\\debug\\layout\\button.xml",
-        "source": "C:\\Users\\deqing\\AndroidStudioProjects\\Crash\\app\\build\\intermediates\\exploded-aar\\com.ydq\\crash\\1.0\\res\\layout\\button.xml"
-    },
-    {
         "merged": "C:\\Users\\deqing\\AndroidStudioProjects\\Crash\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
         "source": "C:\\Users\\deqing\\AndroidStudioProjects\\Crash\\app\\src\\main\\res\\layout\\activity_main.xml"
     },

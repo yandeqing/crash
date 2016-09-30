@@ -180,9 +180,9 @@ public class FileUtil {
         String error_report_dir = Environment.getExternalStorageDirectory()
                 .getAbsolutePath()
                 + File.separator
-                + context.getString(R.string.app_name)
+                + SysInfoUtil.getAppName(context)
                 + File.separator;
-        return error_report_dir + context.getString(R.string.app_name) + ".txt";
+        return error_report_dir + SysInfoUtil.getAppName(context) + ".txt";
     }
 
     /**
@@ -196,8 +196,8 @@ public class FileUtil {
         String error_report_dir = "";
         String err_file_name = "";
         error_report_dir = Environment.getExternalStorageDirectory()
-                .getAbsolutePath() + "/" + context.getString(R.string.app_name);
-        err_file_name = context.getString(R.string.app_name) + ".txt";
+                .getAbsolutePath() + "/" + SysInfoUtil.getAppName(context);
+        err_file_name = SysInfoUtil.getAppName(context) + ".txt";
         final File fileDir = new File(error_report_dir);
         if (!fileDir.exists()) {
             fileDir.mkdirs();
@@ -239,7 +239,7 @@ public class FileUtil {
         final PrintStream printStream = new PrintStream(output);
         writeStackTrace(throwable, printStream);
         // 控制台仍打印log 供调试
-        Log.e(context.getString(R.string.app_name), throwable.toString());
+        Log.e(SysInfoUtil.getAppName(context), throwable.toString());
         throwable.printStackTrace();
         printStream.close();
         output.close();

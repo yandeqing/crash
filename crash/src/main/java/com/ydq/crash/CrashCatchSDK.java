@@ -10,29 +10,47 @@ import java.lang.Thread.UncaughtExceptionHandler;
 import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 
 public class CrashCatchSDK {
+
+
     protected static final String SAVE_EXCEPTION_FILE_PARENT_PATH = "";
     protected static final String SAVE_EXCEPTION_FILE_NAME = "";
     private static Context mContext;
+    private static List<String> mReceivers;
 
-    private static CrashCatchSDK exceptionHandler;
+    private static CrashCatchSDK crashCatchSDK;
     private static UncaughtExceptionHandler defaultExceptionHandler;
 
     private CrashCatchSDK() {
     }
 
 
-    public static void init(Context context) {
+//    public static CrashCatchSDK init(Context context) {
+//        mContext = context;
+//        if (crashCatchSDK == null) {
+//            crashCatchSDK = new CrashCatchSDK();
+//            mContext = context;
+//            defaultExceptionHandler = Thread.getDefaultUncaughtExceptionHandler();
+//        }
+//        setUnCatchableAcceptListioner();
+//        sendErrorLogFromSdcard();//初始化的时候发送一次
+//        return crashCatchSDK;
+//    }
+
+    public static CrashCatchSDK init(Context context, List<String> receivers) {
         mContext = context;
-        if (exceptionHandler == null) {
-            exceptionHandler = new CrashCatchSDK();
+        mReceivers = receivers;
+        if (crashCatchSDK == null) {
+            crashCatchSDK = new CrashCatchSDK();
             mContext = context;
             defaultExceptionHandler = Thread.getDefaultUncaughtExceptionHandler();
         }
         setUnCatchableAcceptListioner();
         sendErrorLogFromSdcard();//初始化的时候发送一次
+        return crashCatchSDK;
     }
 
     /**
@@ -122,8 +140,8 @@ public class CrashCatchSDK {
     public static void uploadLog(final File file) {
         if (file.exists()) {
             try {
-                EmailerSDK.sendClientErrorLogEmail(
-                        file.getAbsolutePath(), mContext);
+                EmailerSDK.setReceivers(mReceivers);
+                EmailerSDK.sendClientErrorLogEmail(mContext,file.getAbsolutePath());
                 boolean delete = FileUtil.deleteFile(file.getAbsolutePath());// 删除文件
                 boolean deleteFile = mContext
                         .deleteFile(file.getName());
@@ -135,5 +153,4 @@ public class CrashCatchSDK {
 
         }
     }
-
 }

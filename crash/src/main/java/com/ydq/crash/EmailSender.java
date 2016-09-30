@@ -50,21 +50,11 @@ public class EmailSender {
     private String from;
     private String account;
     private String pwd;
-
-    List<String> receiver;
+    private List<String> receiver;
     //以上是必须参数
 
 
-    public EmailSender(String host, String post, String from, String account, String pwd) {
-        this.host = host;
-        this.post = post;
-        this.from = from;
-        this.account = account;
-        this.pwd = pwd;
-        initProperties(host, post);
-    }
-
-    public EmailSender() {
+    private EmailSender() {
         this.host = EConfig.host;
         this.post = EConfig.post;
         this.from = EConfig.from;
@@ -73,6 +63,44 @@ public class EmailSender {
         initProperties(host, post);
     }
 
+    public static class Builder {
+        private EmailSender emailSender;
+
+        public Builder() {
+            emailSender = new EmailSender();
+        }
+
+        public Builder from(String from) {
+            emailSender.from = from;
+            return this;
+        }
+
+        public Builder account(String account) {
+            emailSender.account = account;
+            return this;
+        }
+
+        public Builder pwd(String pwd) {
+            emailSender.pwd = pwd;
+            return this;
+        }
+
+        public Builder emailServerHostPost(String host, String post) {
+            emailSender.host = host;
+            emailSender.post = post;
+            return this;
+        }
+
+        public Builder setReceiver(List<String> receiver) {
+            emailSender.setReceiver(receiver);
+
+            return this;
+        }
+
+        public EmailSender build() {
+            return emailSender;
+        }
+    }
 
     /**
      * 初始化参数
@@ -81,7 +109,7 @@ public class EmailSender {
      * @param post
      */
     private void initProperties(String host, String post) {
-        Log.i( TAG, "【EmailSender.send()】【host=" + host + ",post=" + post + "】");
+        Log.i(TAG, "【EmailSender.send()】【host=" + host + ",post=" + post + "】");
         this.properties = new Properties();
         // 地址
         this.properties.put("mail.smtp.host", host);
@@ -93,20 +121,25 @@ public class EmailSender {
         this.message = new MimeMessage(session);
         this.multipart = new MimeMultipart("mixed");
     }
+
     /**
      * 设置收件人
      *
      * @param receiver
      * @throws MessagingException
      */
-    public void setReceiver(List<String> receiver) throws MessagingException {
-        this.receiver = receiver;
-        int size = receiver.size();
-        Address[] address = new InternetAddress[size];
-        for (int i = 0; i < size; i++) {
-            address[i] = new InternetAddress(receiver.get(i));
+    public void setReceiver(List<String> receiver) {
+        try {
+            this.receiver = receiver;
+            int size = receiver.size();
+            Address[] address = new InternetAddress[size];
+            for (int i = 0; i < size; i++) {
+                address[i] = new InternetAddress(receiver.get(i));
+            }
+            this.message.setRecipients(Message.RecipientType.TO, address);
+        } catch (MessagingException e) {
+            e.printStackTrace();
         }
-        this.message.setRecipients(Message.RecipientType.TO, address);
     }
 
     public void setReceiver(String receiver) throws MessagingException {
@@ -180,7 +213,7 @@ public class EmailSender {
         // 创建邮件发送对象，并指定其使用SMTP协议发送邮件
         Transport transport = session.getTransport("smtp");
         // 登录邮箱
-        Log.i( TAG, "【EmailSender.send()】【account=" + account + ",host=" + host + "】");
+        Log.i(TAG, "【EmailSender.send()】【account=" + account + ",host=" + host + "】");
         Log.i(TAG, "【EmailSender.send()】【pwd=" + pwd + "】");
         transport.connect(host, account, pwd);
         // 发送邮件

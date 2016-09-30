@@ -15,38 +15,47 @@ ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManif
 		INJECTED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.INTERNET
 ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml:5:5-67
+MERGED from [com.ydq:crash:1.0.1] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\com.ydq\crash\1.0.1\AndroidManifest.xml:11:5-67
 	android:name
 		ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml:5:22-64
 uses-permission#android.permission.RECEIVE_USER_PRESENT
 ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml:6:5-79
+MERGED from [com.ydq:crash:1.0.1] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\com.ydq\crash\1.0.1\AndroidManifest.xml:12:5-79
 	android:name
 		ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml:6:22-76
 uses-permission#android.permission.READ_PHONE_STATE
 ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml:7:5-75
+MERGED from [com.ydq:crash:1.0.1] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\com.ydq\crash\1.0.1\AndroidManifest.xml:13:5-75
 	android:name
 		ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml:7:22-72
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
 ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml:8:5-81
+MERGED from [com.ydq:crash:1.0.1] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\com.ydq\crash\1.0.1\AndroidManifest.xml:14:5-81
 	android:name
 		ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml:8:22-78
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
 ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml:9:5-80
+MERGED from [com.ydq:crash:1.0.1] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\com.ydq\crash\1.0.1\AndroidManifest.xml:15:5-80
 	android:name
 		ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml:9:22-77
 uses-permission#android.permission.WRITE_SETTINGS
 ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml:10:5-73
+MERGED from [com.ydq:crash:1.0.1] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\com.ydq\crash\1.0.1\AndroidManifest.xml:16:5-73
 	android:name
 		ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml:10:22-70
 uses-permission#android.permission.MOUNT_UNMOUNT_FILESYSTEMS
 ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml:11:5-84
+MERGED from [com.ydq:crash:1.0.1] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\com.ydq\crash\1.0.1\AndroidManifest.xml:17:5-84
 	android:name
 		ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml:11:22-81
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml:12:5-79
+MERGED from [com.ydq:crash:1.0.1] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\com.ydq\crash\1.0.1\AndroidManifest.xml:18:5-79
 	android:name
 		ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml:12:22-76
 uses-permission#android.permission.ACCESS_WIFI_STATE
 ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml:13:5-76
+MERGED from [com.ydq:crash:1.0.1] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\com.ydq\crash\1.0.1\AndroidManifest.xml:19:5-76
 	android:name
 		ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml:13:22-73
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
@@ -71,7 +80,6 @@ ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManif
 		ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml:19:22-76
 application
 ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml:20:5-33:19
-MERGED from [com.ydq:crash:1.0] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\com.ydq\crash\1.0\AndroidManifest.xml:11:5-15:19
 MERGED from [com.android.support:appcompat-v7:23.4.0] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:animated-vector-drawable:23.4.0] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
 MERGED from [com.android.support:support-vector-drawable:23.4.0] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
@@ -102,11 +110,11 @@ ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManif
 		ADDED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml:30:27-74
 uses-sdk
 INJECTED from C:\Users\deqing\AndroidStudioProjects\Crash\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [com.ydq:crash:1.0] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\com.ydq\crash\1.0\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:23.4.0] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:21:5-23:78
 MERGED from [com.android.support:animated-vector-drawable:23.4.0] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\AndroidManifest.xml:5:5-44
 MERGED from [com.android.support:support-vector-drawable:23.4.0] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:5:5-43
 MERGED from [com.android.support:support-v4:23.4.0] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:20:5-43
+MERGED from [com.ydq:crash:1.0.1] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\com.ydq\crash\1.0.1\AndroidManifest.xml:7:5-9:41
 	tools:overrideLibrary
 		ADDED from [com.android.support:appcompat-v7:23.4.0] C:\Users\deqing\AndroidStudioProjects\Crash\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:23:9-75
 	android:targetSdkVersion

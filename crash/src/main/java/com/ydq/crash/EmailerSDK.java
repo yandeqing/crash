@@ -27,16 +27,23 @@ import javax.mail.MessagingException;
  * @author yandeqing
  */
 public class EmailerSDK {
-    public static void sendClientErrorLogEmail(String attachmentPath, Context context) {
+
+    private static List<String> receivers;
+
+    public static void sendClientErrorLogEmail(Context context, String attachmentPath) {
         String errContent = FileUtil.getStrFromFile(attachmentPath);
         sendTextByEmail(context, errContent, attachmentPath);
     }
 
     public static void sendTextByEmail(Context context, String errContent, String... attachmentPaths) {
-        EmailSender sender = new EmailSender();
+        EmailSender.Builder builder = new EmailSender.Builder();
+        EmailSender sender = builder.build();
+        if (receivers != null) {
+            sender.setReceiver(receivers);
+        }
         // 分别设置发件人，邮件标题和文本内容
         StringBuilder title = new StringBuilder();
-        title.append(context.getString(R.string.app_name));
+        title.append(SysInfoUtil.getAppName(context));
         String versionName = SysInfoUtil.getVersionName(context);
         title.append(versionName);
         title.append("【机型:").append(Build.MODEL).append("】");
@@ -59,7 +66,7 @@ public class EmailerSDK {
         content.append("<DIV><STRONG><FONT size=2></FONT></STRONG>&nbsp;</DIV>");
         content.append("<DIV><STRONG><FONT color=#ff0000 size=2></FONT></STRONG>&nbsp;</DIV>");
         content.append("<DIV><STRONG><FONT color=#ff0000 size=2>(该邮件来自"
-                + context.getString(R.string.app_name)
+                + SysInfoUtil.getAppName(context)
                 + "手机客户端)</FONT></STRONG></DIV>");
         content.append("<DIV><STRONG><FONT color=#ff0000 size=2></FONT></STRONG>&nbsp;</DIV>");
         content.append("<DIV><STRONG><FONT color=#ff0000 size=2></FONT></STRONG>&nbsp;</DIV>");
@@ -81,5 +88,9 @@ public class EmailerSDK {
         } catch (MessagingException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void setReceivers(List<String> receivers) {
+        EmailerSDK.receivers = receivers;
     }
 }
