@@ -23,7 +23,7 @@ Or Maven
 two sdk:
 
 1.CrashCatchSDK
-example:
+    example:
     Application onCreate:
         ArrayList<String> receivers = new ArrayList<>();
         receivers.add("546218945@qq.com");
