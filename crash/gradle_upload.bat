@@ -1,4 +1,4 @@
 c:
 cd C:\Users\deqing\AndroidStudioProjects\Crash
-gradlew bintrayUpload --info
+gradlew bintrayUpload --debug
 cmd
