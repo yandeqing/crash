@@ -6,7 +6,7 @@ Gradle一键集成
 ## 如何引用
 * 使用Gradle远程依赖，推荐
 ```groovy
-compile 'com.ydq:crash:1.0'
+compile 'com.ydq:crash:1.0.2'
 ```
 
 Or Maven
