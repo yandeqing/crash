@@ -7,7 +7,7 @@
 .DS_Store
 build
 app/build
-app/build/*
 /captures
 /crash/local.properties
 /crash/build
+/aar

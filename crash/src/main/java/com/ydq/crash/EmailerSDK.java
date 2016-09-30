@@ -38,9 +38,6 @@ public class EmailerSDK {
     public static void sendTextByEmail(Context context, String errContent, String... attachmentPaths) {
         EmailSender.Builder builder = new EmailSender.Builder();
         EmailSender sender = builder.build();
-        if (receivers != null) {
-            sender.setReceiver(receivers);
-        }
         // 分别设置发件人，邮件标题和文本内容
         StringBuilder title = new StringBuilder();
         title.append(SysInfoUtil.getAppName(context));
@@ -73,9 +70,13 @@ public class EmailerSDK {
         try {
             sender.setMessage(title.toString(), content.toString());
             // 设置收件人
-            List<String> emails = new ArrayList<>();
-            emails.add(EConfig.account);
-            sender.setReceiver(emails);
+            if (receivers != null) {
+                sender.setReceiver(receivers);
+            } else {
+                List<String> emails = new ArrayList<>();
+                emails.add(EConfig.account);
+                sender.setReceiver(emails);
+            }
             if (attachmentPaths != null && attachmentPaths.length > 0) {//附带附件，避免文件过长无法读取的情况
                 // 添加附件
                 String attachmentPath = attachmentPaths[0];
