@@ -219,8 +219,6 @@ public class EmailSender {
         // 创建邮件发送对象，并指定其使用SMTP协议发送邮件
         Transport transport = session.getTransport("smtp");
         // 登录邮箱
-        Log.i(TAG, "【EmailSender.send()】【account=" + account + ",host=" + host + "】");
-        Log.i(TAG, "【EmailSender.send()】【pwd=" + pwd + "】");
         transport.connect(host, account, pwd);
         // 发送邮件
         transport.sendMessage(message, message.getAllRecipients());
