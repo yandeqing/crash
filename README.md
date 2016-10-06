@@ -1,12 +1,12 @@
 # Crash
-****When your app crash log will be sent to your email via this tool****
+When your app crash log will be sent to your email via this tool
 
 Gradle intergration
 
 ## Use
 * use Gradle dependency (recommended)
 ```groovy
-   compile 'com.ydq:crash:1.0.3'
+   compile 'com.ydq:crash:1.0.4'
 ```
 
 Or Maven
@@ -14,7 +14,7 @@ Or Maven
 <dependency>
   <groupId>com.ydq</groupId>
   <artifactId>crash</artifactId>
-  <version>1.0</version>
+  <version>1.0.4</version>
   <type>pom</type>
 </dependency>
 ```
