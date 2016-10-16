@@ -19,6 +19,8 @@ import java.util.List;
 
 import javax.mail.MessagingException;
 
+import static com.ydq.crash.EConfig.account;
+
 
 /**
  * 邮件发送工具类
@@ -29,6 +31,8 @@ import javax.mail.MessagingException;
 public class EmailerSDK {
 
     private static List<String> receivers;
+    private static String mAccount;
+    private static String mPwd;
 
     public static void sendClientErrorLogEmail(Context context, String attachmentPath) {
         String errContent = FileUtil.getStrFromFile(attachmentPath);
@@ -37,6 +41,10 @@ public class EmailerSDK {
 
     public static void sendTextByEmail(Context context, String errContent, String... attachmentPaths) {
         EmailSender.Builder builder = new EmailSender.Builder();
+        builder.from(mAccount);
+        builder.account(mAccount);
+        builder.pwd(mPwd);
+        builder.setReceiver(receivers);
         EmailSender sender = builder.build();
         // 分别设置发件人，邮件标题和文本内容
         StringBuilder title = new StringBuilder();
@@ -74,7 +82,7 @@ public class EmailerSDK {
                 sender.setReceiver(receivers);
             } else {
                 List<String> emails = new ArrayList<>();
-                emails.add(EConfig.account);
+                emails.add(account);
                 sender.setReceiver(emails);
             }
             if (attachmentPaths != null && attachmentPaths.length > 0) {//附带附件，避免文件过长无法读取的情况
@@ -93,5 +101,9 @@ public class EmailerSDK {
 
     public static void setReceivers(List<String> receivers) {
         EmailerSDK.receivers = receivers;
+    }
+    public static void setAccoutPwd(String account, String pwd) {
+        mAccount = account;
+        mPwd = pwd;
     }
 }

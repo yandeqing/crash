@@ -2,6 +2,8 @@ package com.ydq.crash;
 
 import android.content.Context;
 
+import com.ydq.crash.exception.CustomException;
+
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -12,6 +14,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import static com.ydq.crash.exception.ExceptionCode.NO_RECEIVER;
+
 
 public class CrashCatchSDK {
 
@@ -20,6 +24,8 @@ public class CrashCatchSDK {
     protected static final String SAVE_EXCEPTION_FILE_NAME = "";
     private static Context mContext;
     private static List<String> mReceivers;
+    private static String mAccount;
+    private static String mPwd;
 
     private static CrashCatchSDK crashCatchSDK;
     private static UncaughtExceptionHandler defaultExceptionHandler;
@@ -40,19 +46,18 @@ public class CrashCatchSDK {
         return crashCatchSDK;
     }
 
-    /**
-     * @param context
-     * @param receivers
-     * @return
-     */
-    public static CrashCatchSDK init(Context context, List<String> receivers) {
+
+    public static CrashCatchSDK init(Context context, String account, String pwd, List<String> receivers) {
         mContext = context;
+        mAccount = account;
+        mPwd = pwd;
         mReceivers = receivers;
         if (crashCatchSDK == null) {
             crashCatchSDK = new CrashCatchSDK();
             mContext = context;
             defaultExceptionHandler = Thread.getDefaultUncaughtExceptionHandler();
         }
+        checkParms();
         setUnCatchableAcceptListioner();
         sendErrorLogFromSdcard();//初始化的时候发送一次
         return crashCatchSDK;
@@ -146,6 +151,7 @@ public class CrashCatchSDK {
         if (file.exists()) {
             try {
                 EmailerSDK.setReceivers(mReceivers);
+                EmailerSDK.setAccoutPwd(mAccount,mPwd);
                 EmailerSDK.sendClientErrorLogEmail(mContext, file.getAbsolutePath());
                 boolean delete = FileUtil.deleteFile(file.getAbsolutePath());// 删除文件
                 boolean deleteFile = mContext
@@ -156,6 +162,21 @@ public class CrashCatchSDK {
             }
         } else {
 
+        }
+    }
+
+    public static void checkParms() throws CustomException {
+        if (mAccount == null || mAccount.length() == 0 || mAccount.trim().length() == 0) {
+            throw new CustomException(CustomException.NO_ACCOUNT);
+        }
+        if (mPwd == null || mPwd.length() == 0 || mPwd.trim().length() == 0) {
+            throw new CustomException(CustomException.NO_PWD);
+        }
+        if (mAccount == null || mAccount.length() == 0 || mAccount.trim().length() == 0) {
+            throw new CustomException(CustomException.NO_ACCOUNT);
+        }
+        if (mReceivers == null || mReceivers.size() == 0) {
+            throw new CustomException(NO_RECEIVER);
         }
     }
 }
