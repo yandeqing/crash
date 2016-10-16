@@ -24,15 +24,15 @@ two sdk:
 
 1.CrashCatchSDK
     example:
-    Application onCreate:
+    in Application onCreate add:
         ArrayList<String> receivers = new ArrayList<>();
         receivers.add("546218945@qq.com");
-        CrashCatchSDK.init(this, receivers);
+        CrashCatchSDK.init(this, "1292234542@qq.com", "RPLfexaFoGXBaxiyZK9kCw==", receivers);
 2.EmailerSDK
-    example:
         List<String> receivers = new ArrayList<>();
         receivers.add("546218945@qq.com");
         EmailerSDK.setReceivers(receivers);
+        EmailerSDK.setAccoutPwd("1292234542@qq.com", "RPLfexaFoGXBaxiyZK9kCw==");
         EmailerSDK.sendTextByEmail(MainActivity.this, "this is a test email ");
 ```
    

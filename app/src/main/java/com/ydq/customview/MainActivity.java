@@ -8,6 +8,7 @@ import com.ydq.crash.CrashCatchSDK;
 import com.ydq.crash.EmailerSDK;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,14 +26,14 @@ public class MainActivity extends AppCompatActivity {
                         ArrayList<String> receivers = new ArrayList<>();
                         receivers.add("546218945@qq.com");
                         EmailerSDK.setReceivers(receivers);
+                        EmailerSDK.setAccoutPwd("1292234542@qq.com", "RPLfexaFoGXBaxiyZK9kCw==");
                         EmailerSDK.sendTextByEmail(MainActivity.this, "这是一个邮件发送测试");
                     }
                 }.start();
             }
         });
-        ArrayList<String> receivers = new ArrayList<>();
+        List<String> receivers = new ArrayList<>();
         receivers.add("546218945@qq.com");
-        CrashCatchSDK.init(this, receivers);
-
+        CrashCatchSDK.init(this, "1292234542@qq.com", "RPLfexaFoGXBaxiyZK9kCw==", receivers);
     }
 }

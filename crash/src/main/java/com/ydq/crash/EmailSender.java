@@ -11,6 +11,8 @@ package com.ydq.crash;
 
 import android.util.Log;
 
+import com.ydq.crash.exception.CustomException;
+
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
@@ -30,6 +32,8 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.internet.MimeUtility;
+
+import static com.ydq.crash.exception.ExceptionCode.NO_RECEIVER;
 
 
 /**
@@ -60,6 +64,7 @@ public class EmailSender {
         this.from = EConfig.from;
         this.account = EConfig.account;
         this.pwd = EConfig.pwd;
+        //
         initProperties(host, post);
     }
 
@@ -80,11 +85,12 @@ public class EmailSender {
 
         public Builder account(String account) {
             emailSender.account = account;
+            from(account);
             return this;
         }
 
         public Builder pwd(String pwd) {
-            emailSender.pwd = pwd;
+            emailSender.pwd = DESUtil.decryptDES(pwd);
             return this;
         }
 
@@ -95,12 +101,25 @@ public class EmailSender {
         }
 
         public Builder setReceiver(List<String> receiver) {
-            emailSender.setReceiver(receiver);
+            emailSender.receiver = receiver;
             return this;
         }
 
         public EmailSender build() {
+            checkParms();
             return emailSender;
+        }
+
+        public void checkParms() throws CustomException {
+            if (emailSender.account == null || emailSender.account.length() == 0 || emailSender.account.trim().length() == 0) {
+                throw new CustomException(CustomException.NO_ACCOUNT);
+            }
+            if (emailSender.pwd == null || emailSender.pwd.length() == 0 || emailSender.pwd.trim().length() == 0) {
+                throw new CustomException(CustomException.NO_PWD);
+            }
+            if (emailSender.receiver == null || emailSender.receiver.size() == 0) {
+                throw new CustomException(NO_RECEIVER);
+            }
         }
     }
 
@@ -144,7 +163,6 @@ public class EmailSender {
     }
 
     /**
-     *
      * @param receiver
      * @throws MessagingException
      */
@@ -162,7 +180,6 @@ public class EmailSender {
      * @throws MessagingException
      */
     public void setMessage(String title, String content) throws MessagingException {
-        this.message.setFrom(new InternetAddress(from));//发件人
         this.message.setSubject(title);
         // 纯文本的话用setText()就行，不过有附件就显示不出来内容了
         MimeBodyPart textBody = new MimeBodyPart();
@@ -211,6 +228,7 @@ public class EmailSender {
      * 发送邮件
      */
     public void send() throws MessagingException {
+        this.message.setFrom(new InternetAddress(from));//发件人
         // 发送时间
         this.message.setSentDate(new Date());
         // 发送的内容，文本和附件
@@ -219,10 +237,12 @@ public class EmailSender {
         // 创建邮件发送对象，并指定其使用SMTP协议发送邮件
         Transport transport = session.getTransport("smtp");
         // 登录邮箱
-        transport.connect(host, account, pwd);
+        transport.connect(host, account, pwd);//设置账号密码
         // 发送邮件
         transport.sendMessage(message, message.getAllRecipients());
         // 关闭连接
         transport.close();
     }
+
+
 }
