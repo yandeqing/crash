@@ -1,5 +1,5 @@
+#gradlew bintrayUpload --stacktrace
 c:
 cd C:\Users\deqing\AndroidStudioProjects\Crash
-gradlew bintrayUpload --stacktrace
-#gradlew bintrayUpload --debug
+gradlew bintrayUpload --debug
 cmd
