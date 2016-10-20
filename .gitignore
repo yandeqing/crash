@@ -1,14 +1,8 @@
 *.iml
 .gradle
-.gradle/*
 /local.properties
 /.idea
 .DS_Store
 build
-app/build
 /captures
 /crash/local.properties
-/crash/build
-app.iml
-Crash.iml
-/aar
